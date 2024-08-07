@@ -36,7 +36,7 @@ int main(void) {
 
 I'm about to show you the syntax for this simple program in C++, but first please notice that we're in a Replit C++ project now. Our source code files no longer have the extension `.c` as in our previous projects. They now have the extension `.cpp`, which stands for C-plus-plus.
 
-> Compile `main.cpp` without using the big green "Run" button (i.e., you type `make clean` and then `make main` at the Console prompt). You'll also see that we're using a "plussed-up" version of the `clang` compiler. Otherwise, everything we learned about compilation of source files and running the resulting object files remains true.
+> Compile `main.cpp` (i.e., you type `make clean` and then `make main` at the shell prompt). You'll also see that we're using a "plussed-up" version of the `clang` compiler. Otherwise, everything we learned about compilation of source files and running the resulting object files remains true.
 
 The following is the "Hello World" program in C++, using its version of the standard I/O library (called `iostream`) and the stream facility that some programmers prefer over `printf`. It is also what you'll find in this project's `main.cpp` file.
 

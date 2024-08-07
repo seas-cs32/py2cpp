@@ -9,12 +9,18 @@ of programming in C++.
 > 
 > Last Update: August 2024
 
-**To get started**, read the `instructions.md` file in the
-directory `1SyntaxDiffs/lesson`.
+**To get started:**
 
-After you complete this initial lesson, you'll find the next
-one in `2Types/lesson/instructions.md`. Continue through the
-directories in order of their first number.
+1.  Open the `1SyntaxDiffs` folder in your IDE's file browser.
+2.  In your IDE's shell window, type `cd 1SyntaxDiffs` and hit
+    return.
+3.  Open `lesson/instructions.md` in your IDE's editor and work
+    through what you find there
+
+After you complete this first lesson, you'll find the next
+one in `2Types`. Repeat the "get started" directions with 
+this directory name. Continue through the directories in
+order of their initial number.
 
 The instructions assume you're doing your work in the Replit
 IDE, but any IDE will work.

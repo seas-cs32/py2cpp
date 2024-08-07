@@ -50,7 +50,7 @@ To reiterate, a statically typed language like C requires us to write a declarat
 
 In addition to declaring the type of the C variable `a_number`, I also had to declare the _signature_ (i.e., type information) for the function `input`. I did this because we are going to write this function `input`, and to use a function we've written, the C compiler needs to know its type information.
 
-The C library does provide functions that are like Python's `input` function, but they aren't as easy to use as the one in Python. So we'll write a function in C that we'll call `input`, which will read a string from the user's console, convert the read string into an integer, and return that integer to the call site. As we write this function, we'll learn about specifying types, declaring and using arrays, commenting our code, and how not to allow bad guys to break our code.
+The C library does provide functions that are like Python's `input` function, but they aren't as easy to use as the one in Python. So we'll write a function in C that we'll call `input`, which will read a string from the user's terminal, convert the read string into an integer, and return that integer to the call site. As we write this function, we'll learn about specifying types, declaring and using arrays, commenting our code, and how not to allow bad guys to break our code.
 
 ## Diving into `main.c`
 
@@ -330,7 +330,7 @@ int main(void) {
 }
 ```
 
-The first part of the `main` function starts with `i` set to the integer value `42`. It then contains a sequence of "fancy assignment" statements. Can you change the `??` in each comment to say what value `i` has at each point in the program?  Try to figure this out before you compile (i.e., type `make mycode` at the console prompt) and run the program (i.e., type `./mycode` at the console prompt).
+The first part of the `main` function starts with `i` set to the integer value `42`. It then contains a sequence of "fancy assignment" statements. Can you change the `??` in each comment to say what value `i` has at each point in the program?  Try to figure this out before you compile (i.e., type `make mycode` at the shell prompt) and run the program (i.e., type `./mycode` at the shell prompt).
 
 The second part of the `main` function works with characters and strings, and it shows how we can set a `bool` variable using a comparison operator. Make sure you understand what's taking place, and please notice the format tags you use for strings and characters.
 
@@ -361,7 +361,7 @@ We'll learn how to get around this limitation in the next project, but this need
 >
 > *   The first parameter to `fgets` is the start of the character array into which you want the string put.
 > *   The second parameter is the length of the array; `fgets` won't read more than this number of characters from the open file.
-> *   The third parameter is the file descriptor from which it should read. In our case, I specified that I wanted to use `stdin`, which tells the system to read from the user's console.
+> *   The third parameter is the file descriptor from which it should read. In our case, I specified that I wanted to use `stdin`, which tells the system to read from the user's terminal.
 >
 > `fgets` in C, which is defined in `stdio.h`, looks like Python's built-in `input` when we specify `stdin` as its third parameter. The big difference between these two "input" functions is that Python's `input` function returns a string large enough to hold whatever the user types (up to and including a typed newline), while C's `fgets` function can only capture as many characters (up to and including a typed newline) as you specify in its second parameter.
 >

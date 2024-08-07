@@ -59,7 +59,17 @@ In `kandr`, you'll see that I placed a semicolon at the end of line 4. The purpo
 
 As we learned in both CS 32 and CS 50, the Python interpreter is sensitive to whitespace. Python statements end with a newline character, and indentation demarcates the blocks that are part of a compound statement.
 
-Go ahead and **hit the big green button to run this program**. The C program prints `Hello World` as expected.
+> **NOTE:** The big green button in Replit doesn't work in the `py2cpp`
+> projects. I'll explain these commands in a moment. Just type them
+> for now.
+
+Go ahead and **run this program** by typing the following in the shell.
+
+```none
+~/py2cpp$ make -s; ./main
+```
+
+The C program `main.c` prints `Hello World` as expected.
  
 Because C ignores whitespace, you can add as many spaces and newlines as you like in a C statement. I'm not saying you _should_ add lots of whitespace, but you _can_.
 
@@ -69,7 +79,7 @@ Let's try this. **Modify line 4 in `main.c`** in the following ways:
 2. Add a newline between the string's closing double quote and the closing parenthesis; and
 3. Add two newlines before the semicolon.
 
-Now **hit the run button again**. There's no change in the program's output. The compiler ignored all four of the newlines we added.
+Now **run the program again** (i.e., type the same line as above, or use the up-arrow key in the shell). There's no change in the program's output. The compiler ignored all four of the newlines we added.
 
 Of course we have to be a bit careful where we stick in extra whitespace. You cannot split something that we want parsed as a single thing. For example, you can't insert whitespace into the name `printf` without creating two new names, or insert extra whitespace into the string `"Hello World"` since whitespace is part of the string.
 
@@ -154,11 +164,11 @@ My goal is not to make you an expert in C preprocessing directives, but to make 
 
 ## Preprocessing and compilation
 
-Ok, you now understand a bit about preprocessing, but what exactly is happening when you hit the big green run button?
+Ok, you now understand a bit about preprocessing, but what exactly is happening in that command you wrote to run the program?
 
-Let's start by recalling what happens when we hit the big green run button with a Python script. When we do this, Replit passes our script to the Python interpreter, which reads through our script, parsing and running each statement. If what we wrote didn't make syntactic and semantic sense, the interpreter stops and prints some sort of error message.
+Let's start by recalling what happens when we ran a Python script. When we do this, Replit passes our script to the Python interpreter, which reads through our script, parsing and running each statement. If what we wrote didn't make syntactic and semantic sense, the interpreter stops and prints some sort of error message.
 
-**Hit the green run button again and look what's run at the prompts.** Replit ran the command `make -s`, which printed nothing. And then it ran `./main`, which gave us our program's output.
+What we typed earlier was two commands. We first asked the shell to run `make -s`, which printed nothing. And then asked it run `./main`, which gave us our program's output. Recall that the semicolon is just the way we tell the shell to run a sequence of commands.
 
 `make` is a command that runs the C preprocessor and the C compiler on our `main.c` program. It produces `./main`, along with a few other files.
 
@@ -170,23 +180,23 @@ There are, however, several other files in the `ls` listing that Replit chose to
 
 The `Makefile` file contains instructions that tell the `make` command what to do. If you want to see what's in it, type `cat Makefile`. I won't explain what you see except to say that you can see a command to `make` at end of this file that tells it what to do if you type `make clean` at the Console prompt.
 
-Go ahead and **run `make clean`**.
+Go ahead and **run `make clean`** in the shell.
 
 What happened? You might want to run `ls` again. Yup, it removed all the files that `make` made in our previous runs. `make` is a powerful program that you can learn about from resources on the web.
 
-Let's have `make` be a bit more talkative about what it is doing. Recall that Replit ran `make -s` when we hit the big green run button. The `-s` parameter to `make` tells it to stay silent while it runs. We can remove it to see what `make` was doing for us.
+Let's have `make` be a bit more talkative about what it is doing. Recall that we ran `make -s`. The `-s` parameter to `make` tells it to stay silent while it runs. We can remove it to see what `make` was doing for us.
 
-**At the Console prompt, type `make clean`, hit return, then type `make` and hit return**.
+**In the shell, type `make clean`, hit return, then type `make` and hit return**.
 
 You should see to commands that both start with `clang`, which is one of the C compilers that you can use.
 
-So, we're definitely running a C compiler. It just happens to be buried in this `make` command, which itself is buried in Replit's big green button. This is done to try and hide the complexity of what it takes to compile a C program.
+So, we're definitely running a C compiler. It just happens to be buried in this `make` command. This is done to try and hide the complexity of what it takes to compile a C program.
 
 But what about the preprocessing step. Well, that is buried within the C compiler. It's one of the first things that the C compiler does with our `main.c`.
 
-To see this, **type `clang -E main.c` at the Console prompt and hit return**.
+To see this, **type `clang -E main.c` in the shell and hit return**.
 
-A whole bunch of stuff is printed on the Console. So much, in fact, that you can't scroll back far enough to see everything (i.e., the Console output buffer isn't big enough). At the end of this listing, however, you can see what looks like most of our `main.c` program.
+A whole bunch of stuff is printed on the Console. So much, in fact, that you might not be able to scroll back far enough to see everything (i.e., the shell's output buffer might not be big enough). At the end of this listing, however, you can see what looks like most of our `main.c` program.
 
 What's missing is the `#include` statement, and that's because the C preprocessor run inside of clang's execution replaced that `#include` directive with the code in `stdio.h`. Thank goodness we didn't have to type all this, huh?
 
@@ -258,7 +268,7 @@ I realize you don't have much C knowledge under your belt, but let's get into th
 
 I've created an empty C file called `mycode.c` in this project. It's in this file that you should try writing your own C code as you hit each of these active learning interludes.
 
-I've configured the `Makefile` in this project to compile `mycode.c` as a standalone executable, which means it won't interfere with the code we have in `main.c`. And unlike `main.c`, it's not hooked into the big green "Run" button. You have to type `make mycode` in the Console window, and then assuming you had no compile-time errors, you'd type `./mycode` to run your code.
+I've configured the `Makefile` in this project to compile `mycode.c` as a standalone executable, which means it won't interfere with the code we have in `main.c`. To create a runnable version of `mycode.c`, you have to type `make mycode` in the shell, and then assuming you had no compile-time errors, you'd type `./mycode` to run it.
 
 I've also made it so that your `mycode` executable is not a hidden file. You'll see it in the list of files to the left. This file will, however, disappear if you run `make clean`. That's ok, as you can recreate it typing `make mycode`!
 
@@ -287,7 +297,7 @@ I've included three text files in this project.
 * `main2.txt` is a C program that wraps three `printf` statements in an if-statement
 * `main3.txt` is the same as `main2.txt`, except it removes a lot of the newlines and spaces that made `main2.txt` easy for us as humans to read.
 
-**At the Console prompt, type `cp main2.txt main.c`**.
+**In the shell, type `cp main2.txt main.c`**.
 
 **Click on `main.c` and look at the C code.** You'll see that we've replaced the function `kandr` with a function named `who`. The body of this function contains a C if-statement, which looks a lot like the syntax for Python if-statement, except for three things:
 
@@ -297,7 +307,7 @@ I've included three text files in this project.
 
 We will see these same curly brackets in a later lesson when we talk about loops in C.
 
-**Go ahead and click the big green run button.** Feel free to change the constant integer defined as `STUDENT` on line 3 and see if you can get the other `printf` statements to execute.
+**Go ahead and make and run this new `main.c`.** Feel free to change the constant integer defined as `STUDENT` on line 3 and see if you can get the other `printf` statements to execute.
 
 ## Style
 
@@ -326,7 +336,7 @@ To be clear, don't mix styles. Pick one that makes you happy and stick with it. 
 
 ## Whitespace eliminated
 
-Let's take this to the extreme. Copy `main3.txt` into `main.c` and run it. **Type `cp main3.txt main.c` at the Console prompt, and then hit the big green run button**.
+Let's take this to the extreme. Copy `main3.txt` into `main.c` and run it. **Type `cp main3.txt main.c` in the shell, and then make and run it**.
 
 Same output as the first time we ran `main2.txt` as `main.c`, right?
 
@@ -338,7 +348,7 @@ But it ran! Clearly I was right in my earlier comments about whitespace in the C
 
 ## Clean-up
 
-If you want to start this lesson again, just **type `cp main1.txt main.c` at the Console prompt and hit return**.
+If you want to start this lesson again, just **type `cp main1.txt main.c` in the shell and hit return**.
 
 ## Active learning interlude (ali2)
 

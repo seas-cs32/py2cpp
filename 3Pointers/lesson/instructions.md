@@ -80,7 +80,7 @@ int main(void) {
 
 Let's try. Copy the code and put it into `main.c`. Remember that the markdown code boxes, if you click them, will give you a copy icon in the upper right-hand corner.
 
-Now, type `make main` in the console window. You should see two successful executions of `clang`.
+Now, type `make main` in the shell window. You should see two successful executions of `clang`.
 
 Next, switch which declaration of `response` you're using in `main.c` and `make main` again. Again, two successful executions of `clang`.
 
@@ -177,7 +177,7 @@ Please start with the array declaration, i.e.,
 
 `char response[RESPONSE_MAXLEN];`
 
-After you've updated the program with this choice, compile and run it, which you can do by just hitting the big green "Run" button.
+After you've updated the program with this choice, compile and run it.
 
 Type "test" in response to the prompt and hit return. You should see the program complete successfully with the right answer for the length of your response.
 
@@ -195,7 +195,7 @@ Now let's try running with the pointer declaration, i.e.,
 
 `char *response;`
 
-After you've updated the program with this choice, click the big green "Run" button, type "test" in response to the prompt, and hit return. 
+After you've updated the program with this choice, compile and run it. At the prompt, type "test" and hit return. 
 
 The program starts running well, but it does something unexpected after you type "test" and hit return. For me, it gave me the prompt again, and then after I typed something and hit return, I got a segmentation fault.
 
@@ -253,7 +253,7 @@ int main(void) {
 }
 ```
 
-Copy this code into `main.c`, replacing anything that was there. Compile and run it by hitting the big green "Run" button. Respond to the prompt with "test".
+Copy this code into `main.c`, replacing anything that was there. Compile and run it. Respond to the prompt with "test".
 
 It worked! Why?
 
