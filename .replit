@@ -1,0 +1,8 @@
+modules = ["cpp-clang14", "c-clang14", "nix"]
+run = "make -s"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "make -s"]
