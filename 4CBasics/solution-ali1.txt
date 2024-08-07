@@ -1,0 +1,7 @@
+#include <iostream>
+
+int main(void) {
+    int i = 42;
+    std::cout << "Hello World! i = " << i << std::endl;
+    return 0;
+}

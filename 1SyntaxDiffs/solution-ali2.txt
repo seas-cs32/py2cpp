@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+#define MIN(x,y,z) ((x) < (y) ? ((x) < (z) ? (x) : (z)) : ((y) < (z) ? (y) : (z)))
+
+int main(void) {
+    int x = 1;
+    int y = 3;
+    int z = 6;
+    int answer;
+
+    answer = MIN(x, y, z);
+    if (x % 2 != 0) {
+        answer = x;
+    }
+    if (y % 2 != 0 && y > answer) {
+        answer = y;
+    }
+    if (z % 2 != 0 && z > answer) {
+        answer = z;
+    }
+    printf("%d\n", answer);
+
+    return 0;
+}

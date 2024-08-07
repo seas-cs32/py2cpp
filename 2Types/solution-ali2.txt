@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define STRING char *
+
+int main(void) {
+    bool is_capital;
+    char c = 'x';
+    int i;
+    STRING s;
+
+    /* Play with fancy assignments */
+    i = 42;
+    i /= 7;
+    /* here the value of i is: 6 */
+    i++;
+    /* here the value of i is: 7 */
+    i *= i;
+    /* here the value of i is: 49 */
+    i--;
+    /* here the value of i is: 48 */
+    i -= (i / 10);
+    /* here the value of i is: 44 */
+
+    printf("i was 42 and is now %d\n", i);
+    
+    /* Play with Boolean type */
+    is_capital = (c == 'X');
+    if (is_capital) {
+        s = "a capitalized X";
+    } else if (c != 'x') {
+        s = "something other than x/X";
+    } else {
+        s = "a little x";
+    }
+    printf("We found %s ('%c').\n", s, c);
+
+    return 0;
+}

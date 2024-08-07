@@ -1,0 +1,23 @@
+# Our original string, which we won't modify
+s1 = "I'm a knowledgeable C programmer!"
+
+# All strings are immutable in Python, and so we'll
+# slowly build up a new string a character at a time
+s2 = ''
+
+# We'll turn C's pointer arithmetic into indexing
+make_upper = False
+for c in s1:
+    if c == 'k':
+        make_upper = True
+        s2 += c.upper()
+    elif make_upper:
+        if c == ' ':
+            make_upper = False
+            s2 += c
+        else:
+            s2 += c.upper()
+    else:
+        s2 += c
+
+print(s2)

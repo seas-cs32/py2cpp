@@ -1,0 +1,14 @@
+int main(void) {
+    char c;
+
+    // experiment #1
+    c = 'abc';
+
+    // experiment #2
+    c = "abc";
+
+    // Correct initialization of a char variable
+    c = 'a';
+
+    return 0;
+}

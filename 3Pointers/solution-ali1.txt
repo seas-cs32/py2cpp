@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main(void) {
+    /* Print the integer value of the character '0'. Notice
+     * that I don't have to type convert the character
+     * literal to an `int` in C because C considers characters
+     * to be small integers. */
+    printf("%d\n", '0');
+    return 0;
+}

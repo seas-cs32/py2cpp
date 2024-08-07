@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(void) {
+    char s[5];
+
+    /* Initialize s to "cs32" */
+    s[0] = 'c';
+    s[1] = 's';
+    s[2] = '3';
+    s[3] = '2';
+    s[4] = '\0';  /* the null character */
+
+    /* Change the characters "32" to "61" using
+     * only the fancy assignments we learned. */
+    printf("Preparing students from %s ", s);
+    
+    // INSERT YOUR CODE HERE
+    m.s[2] += 3;
+    m.s[3]--;
+
+    printf("for %s\n", s);
+    
+    return 0;
+}

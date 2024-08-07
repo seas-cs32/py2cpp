@@ -1,0 +1,3 @@
+#include <stdio.h>
+#define STUDENT 32
+void who(void){if(STUDENT==32){printf("Hello CS 32 star!\n");}else if(STUDENT==50){printf("Hello CS 50 friend.\n");}else{printf("Hi, nice to me you.\n");}}int main(void){who();return 0;}

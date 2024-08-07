@@ -1,0 +1,70 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+// constants
+const int DAYS = 5;   // Monday - Friday
+const int HOURS = 7;  // 9am through 3pm, i.e. we quit at 4pm
+
+int main(void) {
+    // My schedule for the week
+    string schedule[DAYS][HOURS] =
+    {
+        // Monday
+        {"", "Joe", "Francene", "", "Marla", "Tim", "Jack"},
+        // Tuesday
+        {"Emilie", "Owen", "", "", "Jim", "Donna", ""},
+        // Wednesday
+        {"Hannah", "", "Andrew", "", "Merce", "", "Tom"},
+        // Thursday
+        {"", "", "", "", "", "", ""},
+        // Friday
+        {"Mom", "Dad", "", "Cosmo", "", "", "Sam"},
+    };
+
+    // Dynamically allocate some space for our schedule array
+    string **parray;
+    parray = new string*[DAYS];
+    for (int d = 0; d < DAYS; d++) {
+        parray[d] = new string[HOURS];
+    }
+
+    // Initialize it from our local schedule array
+    for (int i = 0; i < DAYS; i++) {
+        for (int j = 0; j < HOURS; j++) {
+            parray[i][j] = schedule[i][j];
+        }
+    }
+
+    // Print the schedule header
+    cout << "    " << setw(10) << "Monday"
+                   << setw(10) << "Tuesday"
+                   << setw(10) << "Wednesday"
+                   << setw(10) << "Thursday"
+                   << setw(10) << "Friday" << endl;
+
+    for (int j = 0; j < HOURS; j++) {
+        // Compute the hour between 9am and 4pm
+        int hour = (j < 3) ? (9 + j) : (j - 2);
+        string time = to_string(hour) + ((j < 3) ? "am" : "pm");
+
+        // Print the hour
+        cout << setw(4) << time;
+            
+        // Print the schedule for this hour
+        for (int i = 0; i < DAYS; i++) {
+            cout << setw(10) << parray[i][j];
+        }
+        cout << endl;
+    }
+
+    // Free the dynamically allocated array
+    for (int d = 0; d < DAYS; d++) {
+        delete [] parray[d];
+    }
+    delete [] parray;
+
+    return 0;
+}
