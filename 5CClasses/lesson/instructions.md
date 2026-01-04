@@ -94,7 +94,7 @@ Let's dynamically allocate (and free) a 1D character array and then our 2D `mile
 void my_func(void) {
     // Declare two pointer variables
     char *pstring;           // A pointer to an array of characters
-    double **double parray;  // A pointer to an array of pointers!
+    double **parray;         // A pointer to an array of pointers!
 
     // Dynamically allocate the 1D array, which is straightforward
     pstring = new char[72];
@@ -119,7 +119,6 @@ void my_func(void) {
         delete [] parray[i];
     }    
     delete [] parray;
-
 }
 ```
 
